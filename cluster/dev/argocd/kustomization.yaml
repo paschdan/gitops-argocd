@@ -4,3 +4,7 @@ kind: Kustomization
 resources:
 - https://github.com/argoproj/argo-cd/manifests/cluster-install?ref=v1.7.4
 
+patchesStrategicMerge:
+- overlays/argo-cd-cm.yaml
+
+namespace: argocd
