@@ -1,0 +1,7 @@
+spec:
+  cluster: cluster/dev
+  destination:
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: https://github.com/paschdan/gitops-argocd
+    targetRevision: master
