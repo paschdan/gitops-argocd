@@ -8,6 +8,12 @@ spec:
       volumes:
         - name: custom-tools
           emptyDir: {}
+        - name: gcp-service-account-credentials-volume
+          secret:
+            secretName: gcs-credentials-file
+            items:
+            - key: gcs-credentials.json
+              path: gcs-credentials.json
       initContainers:
         - name: install-ksops
           # Match Argo CD Go version
@@ -32,11 +38,11 @@ spec:
             - mountPath: /.config/kustomize/plugin/viaduct.ai/v1/ksops/ksops.so
               name: custom-tools
               subPath: ksops.so
+            - mountPath: /etc/gcp
+              name: gcp-service-account-credentials-volume
+              readOnly: true
           env:
             - name: XDG_CONFIG_HOME
               value: /.config
             - name: GOOGLE_APPLICATION_CREDENTIALS
-              valueFrom:
-                secretKeyRef:
-                  name: gcs-credentials-file
-                  key: gcs-credentials.json
+              value: /etc/gcp/gcs-credentials.json
