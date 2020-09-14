@@ -1,0 +1,8 @@
+creation_rules:
+  - path_regex: .*/dev/.*
+    encrypted_regex: '^(data|stringData)$'
+    pgp: '7FF7A1B449C39E7CDC644626DFC7C87BA6BD7D2F'
+  - path_regex: .*/prod/.*
+    encrypted_regex: '^(data|stringData)$'
+    gcp_kms: projects/paschdan/locations/global/keyRings/sops/cryptoKeys/sops-key
+
