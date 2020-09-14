@@ -5,7 +5,11 @@ resources:
 - https://github.com/argoproj/argo-cd/manifests/cluster-install?ref=v1.7.4
 
 patchesStrategicMerge:
-- overlays/argo-cd-cm.yaml
-- overlays/argo-cd-repo-server.yaml
+- overlays/argo-cd-cm-patch.yaml
+- overlays/argo-cd-repo-server-ksops-patch.yaml
+- overlays/argo-cd-repo-server-import-pgp-key-patch.yaml
+
+generators:
+- secret-generators.yaml 
 
 namespace: argocd
