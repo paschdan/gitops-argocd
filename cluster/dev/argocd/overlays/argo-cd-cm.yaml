@@ -3,6 +3,7 @@ kind: ConfigMap
 metadata:
   name: argocd-cm
 data:
+  kustomize.buildOptions: "--enable_alpha_plugins"
   admin.enabled: 'true'
   statusbadge.enabled: 'false'
   users.anonymous.enabled: 'true'

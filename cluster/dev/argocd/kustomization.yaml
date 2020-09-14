@@ -6,5 +6,6 @@ resources:
 
 patchesStrategicMerge:
 - overlays/argo-cd-cm.yaml
+- overlays/argo-cd-repo-server.yaml
 
 namespace: argocd
